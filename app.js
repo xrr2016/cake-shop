@@ -1,6 +1,15 @@
 window.onload = function () {
 	imgNum('container','box');
-	var imgDate = {'data':[{'src':'img/40.jpg'},{'src':'img/41.jpg'},{'src':'img/42.jpg'},{'src':'img/43.jpg'},{'src':'img/44.jpg'},{'src':'img/45.jpg'}]}
+	var imgDate = {'data':[{'src':'img/40.jpg'},{'src':'img/41.jpg'},{'src':'img/42.jpg'},{'src':'img/43.jpg'},
+	{'src':'img/44.jpg'},{'src':'img/45.jpg'},{'src':'img/46.jpg'},{'src':'img/47.jpg'},{'src':'img/48.jpg'},{'src':'img/49.jpg'}
+	,{'src':'img/50.jpg'},{'src':'img/51.jpg'},{'src':'img/52.jpg'},{'src':'img/53.jpg'},{'src':'img/54.jpg'},{'src':'img/55.jpg'}
+	,{'src':'img/56.jpg'},{'src':'img/57.jpg'},{'src':'img/58.jpg'},{'src':'img/59.jpg'},{'src':'img/60.jpg'},{'src':'img/61.jpg'}
+	,{'src':'img/62.jpg'},{'src':'img/63.jpg'},{'src':'img/64.jpg'},{'src':'img/65.jpg'},{'src':'img/66.jpg'},{'src':'img/67.jpg'}
+	,{'src':'img/68.jpg'},{'src':'img/69.jpg'},{'src':'img/70.jpg'},{'src':'img/71.jpg'},{'src':'img/72.jpg'},{'src':'img/73.jpg'}
+	,{'src':'img/74.jpg'},{'src':'img/75.jpg'},{'src':'img/76.jpg'},{'src':'img/77.jpg'},{'src':'img/78.jpg'},{'src':'img/79.jpg'}
+	,{'src':'img/80.jpg'},{'src':'img/81.jpg'},{'src':'img/82.jpg'},{'src':'img/83.jpg'},{'src':'img/84.jpg'},{'src':'img/85.jpg'}
+	,{'src':'img/86.jpg'},{'src':'img/87.jpg'},{'src':'img/88.jpg'},{'src':'img/89.jpg'},{'src':'img/90.jpg'},{'src':'img/91.jpg'}
+	,{'src':'img/92.jpg'},{'src':'img/93.jpg'},{'src':'img/94.jpg'},{'src':'img/95.jpg'},{'src':'img/96.jpg'},{'src':'img/97.jpg'}]}
 	window.onscroll = function(){
 		if(checkSlide()){
 			var oParent = getContainer();
