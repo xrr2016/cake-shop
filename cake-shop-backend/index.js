@@ -28,6 +28,6 @@ app.use('/api/product', routes.product)
 app.use('/uploads', express.static('uploads'))
 app.use('*', (req, res) => res.status(404).end('Not Found!'))
 
-app.listen(3000, () => {
-  console.log('App running on port 3000')
+app.listen(process.env.PORT, () => {
+  console.log(`App running on port ${process.env.PORT}`)
 })
