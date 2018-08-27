@@ -6,6 +6,10 @@ const userSchema = new Schema({
     type: String,
     default: ''
   },
+  bio: {
+    type: String,
+    default: ''
+  },
   email: {
     type: String,
     required: true,

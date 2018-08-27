@@ -4,7 +4,6 @@ const validator = require('validator')
 const mongoose = require('mongoose')
 
 const User = require('../models/user')
-const auth = require('../middleware/auth')
 
 function isVerifiedField(str) {
   return !validator.isEmpty(str) && validator.isLength(str, { min: 4 })
@@ -15,9 +14,14 @@ function isVerifiedEmail(email) {
 }
 
 async function getUsers(req, res) {
-  const users = await User.find().exec()
-
-  return res.status(200).json(users)
+  User.find()
+    .exec()
+    .then(users => {
+      return res.status(200).json({ success: true, users })
+    })
+    .catch(error => {
+      return res.status(500).json({ success: false, error })
+    })
 }
 
 async function getUser(req, res) {
