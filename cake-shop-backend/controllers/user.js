@@ -4,7 +4,7 @@ const validator = require('validator')
 const mongoose = require('mongoose')
 
 const User = require('../models/user')
-const checkLogin = require('../middleware/check_login')
+const auth = require('../middleware/auth')
 
 function isVerifiedField(str) {
   return !validator.isEmpty(str) && validator.isLength(str, { min: 4 })
@@ -89,7 +89,7 @@ async function login(req, res, next) {
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (isMatch) {
-      const token = jwt.sign({ field }, process.env.JWT_KEY)
+      const token = jwt.sign({ field, id: user._id }, process.env.JWT_KEY, { expiresIn: '10h' })
 
       return res.status(200).json({ success: true, message: '登录成功', token })
     } else {
@@ -101,8 +101,6 @@ async function login(req, res, next) {
 async function update(req, res) {
   const userId = req.params.userId
   let { name, email, password } = req.body
-
-  console.log(name, email, password)
 
   if (!name && !email && !password) {
     return res.status(406).json({ success: false, message: '请至少选择一项进行修改' })
