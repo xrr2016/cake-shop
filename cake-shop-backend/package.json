@@ -1,0 +1,33 @@
+{
+  "name": "cake-shop-backend",
+  "version": "0.0.1",
+  "description": "cake shop backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "cake",
+    "shop"
+  ],
+  "author": "xrr2016",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.8",
+    "validator": "^10.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.3"
+  }
+}
