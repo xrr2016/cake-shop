@@ -19,19 +19,19 @@ Request.interceptors.request.use(
   }
 )
 
-Request.interceptors.response.use(
-  function(response) {
-    return response
-  },
-  function(error) {
-    if (error.response) {
-      switch (error.response.status) {
-        case 401:
-          break
-      }
-    }
-    return Promise.reject(error.response)
-  }
-)
+// Request.interceptors.response.use(
+//   function(response) {
+//     return response
+//   },
+//   function(error) {
+//     if (error.response) {
+//       switch (error.response.status) {
+//         case 401:
+//           break
+//       }
+//     }
+//     return Promise.reject(error.response)
+//   }
+// )
 
 export default Request

@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Button } from 'antd'
+
 import './App.css'
+import Account from '../layouts/Account'
+import Dashboard from '../layouts/Dashboard'
+import NoFound from './400'
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
-        <header className="app__header">header</header>
-      </div>
+      <Router>
+        <React.Fragment>
+          <Route exact path="/" component={Account} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route component={NoFound} />
+        </React.Fragment>
+      </Router>
     )
   }
 }

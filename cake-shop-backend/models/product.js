@@ -22,6 +22,10 @@ const productSchema = new Schema({
   imgUrl: {
     type: String,
     default: ''
+  },
+  rate: {
+    type: Schema.Types.Decimal128,
+    default: 5.0
   }
 })
 
