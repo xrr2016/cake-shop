@@ -13,7 +13,7 @@ async function getProducts(req, res) {
 }
 
 async function addProduct(req, res, next) {
-  const imgUrl = `http://localhost:3000/${req.file.path}`
+  const imgUrl = `${process.env.HOSTNAME}:${process.env.PORT}/${req.file.path}`
   const { name, description, price, stock } = req.body
 
   if (validator.isEmpty(name)) {
