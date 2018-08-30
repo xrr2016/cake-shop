@@ -1,2 +1,6 @@
-.am-tab-bar::-webkit-scrollbar {
-  display: none; }
+.app-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw; }
