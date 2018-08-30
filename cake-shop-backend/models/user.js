@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const { mongoose, Schema, createModel } = require('./index')
 
-const userSchema = new Schema({
+const userSchema = {
   name: {
     type: String,
     default: ''
@@ -19,6 +18,6 @@ const userSchema = new Schema({
     type: String,
     required: true
   }
-})
+}
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = createModel('User', userSchema)

@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const { mongoose, Schema, createModel } = require('./index') 
 
-const commentSchema = new Schema({
+const commentSchema = {
   content: {
     type: String,
     required: true,
@@ -16,6 +15,7 @@ const commentSchema = new Schema({
     ref: 'User',
     required: true
   }
-})
+}
 
-module.exports = mongoose.model('Order', orderSchema)
+module.exports = createModel('Order', orderSchema)
+
