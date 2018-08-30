@@ -1,20 +1,61 @@
 .dashboard {
   width: 100vw;
   height: 100vh;
-  color: #333;
   &__logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
+    color: #fff;
+    font-size: 1.8rem;
+    padding-left: 28px;
+    height: 64px;
+    line-height: 64px;
+    overflow: hidden;
+    background-color: #002140;
+    .logo {
+      padding-right: 12px;
+    }
+    .title {
+      font-weight: 500;
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-right: 12px;
+    background-color: #fff;
   }
   &__trigger {
     font-size: 18px;
     line-height: 64px;
     padding: 0 24px;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: background-color 0.3s;
     &:hover {
-      color: #1890ff;
+      background-color: #e6f7ff;
     }
+  }
+  &__actions {
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-start;
+    height: 100%;
+  }
+  &__action {
+    height: 100%;
+    cursor: pointer;
+    padding: 0 12px;
+    &:hover {
+      background-color: #e6f7ff;
+    }
+  }
+  &__avatar {
+    background-color: #f56a00;
+  }
+  &__username {
+    padding-left: 12px;
+  }
+  &__content {
+    margin: 12px;
+    padding: 12px;
   }
 }
