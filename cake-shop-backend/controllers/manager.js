@@ -65,10 +65,10 @@ async function signUp(req, res, next) {
   newManager
     .save()
     .then(result => {
-      return res.status(201).json({ success: true, result })
+      return res.status(201).json({ success: true, result, message: '注册成功，请登录' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, error })
+      return res.status(500).json({ success: false, error, message: '注册失败，请重试' })
     })
 }
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox, message as Message } from 'antd'
 
-import './style.css'
 import { CAKE_SHOP_AUTH_TOKEN } from '../../constant'
 import ManagerService from '../../services/manager'
 
