@@ -24,10 +24,11 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(cors({ optionsSuccessStatus: 200 }))
 app.use('/api/user', routes.user)
+app.use('/api/manager', routes.manager)
 app.use('/api/product', routes.product)
 app.use('/uploads', express.static('uploads'))
 app.use('*', (req, res) => res.status(404).end('Not Found!'))
 
 app.listen(process.env.PORT, () => {
-  console.log(`App running on port ${process.env.PORT}`)
+  console.log(`Server running on port ${process.env.PORT}`)
 })

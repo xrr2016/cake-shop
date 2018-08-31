@@ -1,0 +1,25 @@
+.account {
+  height: 100vh;
+  &__content {
+    margin-top: 100px;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__tabs {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 32px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15);
+  }
+  &__footer {
+    text-align: center;
+  }
+  &__link {
+    padding: 0 6px;
+    color: #999;
+  }
+}

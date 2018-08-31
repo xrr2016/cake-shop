@@ -11,7 +11,8 @@
     padding-left: 28px;
     height: 64px;
     line-height: 64px;
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: #002140; }
     .dashboard__logo .logo {
       padding-right: 12px; }
     .dashboard__logo .title {

@@ -1,0 +1,19 @@
+.account {
+  height: 100vh; }
+  .account__content {
+    margin-top: 100px; }
+  .account__title {
+    text-align: center; }
+  .account__tabs {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 32px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15); }
+  .account__footer {
+    text-align: center; }
+  .account__link {
+    padding: 0 6px;
+    color: #999; }

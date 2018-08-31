@@ -1,5 +1,9 @@
 import request from './request'
 
-class UserService {}
+async function getAllUsers() {
+  return await request.get('/user')
+}
 
-export default new UserService()
+export default {
+  getAllUsers
+}

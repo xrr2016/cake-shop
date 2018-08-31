@@ -42,7 +42,7 @@ export default class Admin extends Component {
           collapsed={collapsed}
         >
           <h1 className="dashboard__logo">
-            <Icon className="logo" type="setting" />
+            <Icon className="logo" type="appstore-o" />
             <span className="title">Cake Shop Admin</span>
           </h1>
           <Menu mode="inline" theme="dark" defaultSelectedKeys={['0']}>
@@ -54,7 +54,7 @@ export default class Admin extends Component {
               key="product"
               title={
                 <span>
-                  <Icon type="shop" />
+                  <Icon type="area-chart" />
                   <span>商品管理</span>
                 </span>
               }
@@ -62,6 +62,18 @@ export default class Admin extends Component {
               <Menu.Item key="check">查看商品</Menu.Item>
               <Menu.Item key="add">新增商品</Menu.Item>
               <Menu.Item key="edit">编辑商品</Menu.Item>
+            </SubMenu>
+            <SubMenu
+              key="shop"
+              title={
+                <span>
+                  <Icon type="shop" />
+                  <span>店铺管理</span>
+                </span>
+              }
+            >
+              <Menu.Item key="check">查看管理员</Menu.Item>
+              <Menu.Item key="add">新增管理员</Menu.Item>
             </SubMenu>
             <SubMenu
               key="user"
@@ -72,8 +84,8 @@ export default class Admin extends Component {
                 </span>
               }
             >
-              <Menu.Item key="check">查看用户</Menu.Item>
-              <Menu.Item key="setting">用户设置</Menu.Item>
+              <Menu.Item key="check">用户数据</Menu.Item>
+              <Menu.Item key="setting">用户编辑</Menu.Item>
             </SubMenu>
             <SubMenu
               key="order"

@@ -1,0 +1,1 @@
+export const CAKE_SHOP_AUTH_TOKEN = 'CAKE_SHOP_AUTH_TOKEN'
