@@ -13,3 +13,6 @@ body {
   box-sizing: inherit;
   margin: 0;
   padding: 0; }
+
+::-webkit-scrollbar {
+  width: 0; }

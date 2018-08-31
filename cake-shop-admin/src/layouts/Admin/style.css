@@ -1,14 +1,17 @@
 .dashboard {
   width: 100vw;
   height: 100vh; }
+  .dashboard__sider {
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto; }
   .dashboard__logo {
     color: #fff;
     font-size: 1.8rem;
     padding-left: 28px;
     height: 64px;
     line-height: 64px;
-    overflow: hidden;
-    background-color: #002140; }
+    overflow: hidden; }
     .dashboard__logo .logo {
       padding-right: 12px; }
     .dashboard__logo .title {
