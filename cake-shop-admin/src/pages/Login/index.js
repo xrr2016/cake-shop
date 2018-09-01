@@ -23,16 +23,15 @@ class Login extends Component {
             const { message, token, manager } = res.data
 
             Message.success(message)
-            localStorage.setItem(CAKE_SHOP_AUTH_TOKEN, token)
+            localStorage.setItem(CAKE_SHOP_AUTH_TOKEN, `Bearer ${token}`)
             localStorage.setItem(CAKE_SHOP_USER_INFO, JSON.stringify(manager))
             login(manager)
             history.push('/admin')
           })
           .catch(error => {
-            console.dir(error)
-            // const { data } = error.response
+            const { data } = error.response
 
-            Message.error(error.message)
+            Message.error(data.message)
           })
       }
     })

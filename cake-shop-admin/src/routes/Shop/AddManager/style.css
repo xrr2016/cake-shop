@@ -1,0 +1,7 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; }
+  .content .form {
+    width: 480px;
+    margin-top: 40px; }

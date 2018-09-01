@@ -38,7 +38,7 @@ async function getManager(req, res) {
 }
 
 async function signUp(req, res, next) {
-  let { name, email, password } = req.body
+  let { name, email, password, level } = req.body
 
   if (!isVerifiedField(name)) {
     return res.status(400).json({ success: false, message: '请输入字符长度大于4的用户名' })
@@ -60,7 +60,7 @@ async function signUp(req, res, next) {
 
   password = await bcrypt.hash(password, 10)
 
-  const newManager = new Manager({ name, email, password })
+  const newManager = new Manager({ name, email, password, level })
 
   newManager
     .save()
@@ -109,7 +109,7 @@ async function login(req, res, next) {
 
 async function update(req, res) {
   const managerId = req.params.managerId
-  let { name, email, password } = req.body
+  let { name, email, password, level } = req.body
 
   if (!name && !email && !password) {
     return res.status(406).json({ success: false, message: '请至少选择一项进行修改' })

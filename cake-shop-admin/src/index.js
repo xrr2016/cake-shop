@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
 import './index.css'
 import Login from './pages/Login'
@@ -12,19 +12,16 @@ import ProductCheck from './routes/Product/Check'
 import CheckManager from './routes/Shop/CheckManager'
 import AddManager from './routes/Shop/AddManager'
 
-import { CAKE_SHOP_AUTH_TOKEN } from './constant'
 import { ManagerContext } from './store/manager'
+import { CAKE_SHOP_AUTH_TOKEN, CAKE_SHOP_USER_INFO } from './constant'
 import registerServiceWorker from './registerServiceWorker'
 
 const isLogin = localStorage.getItem(CAKE_SHOP_AUTH_TOKEN)
+const manager = JSON.parse(localStorage.getItem(CAKE_SHOP_USER_INFO))
 
 class App extends React.Component {
-  state = {
-    manager: {
-      name: '',
-      email: ''
-    }
-  }
+  state = { manager }
+
   login = manager => {
     this.setState({ manager })
   }

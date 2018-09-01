@@ -9,11 +9,12 @@ const { SubMenu } = Menu
 
 class AdminSider extends Component {
   state = {
-    collapsed: false
+    collapsed: false,
+    defaultSelectedKeys: ['shop']
   }
 
   render() {
-    const { collapsed } = this.props
+    const { collapsed, defaultSelectedKeys } = this.props
 
     return (
       <Sider className="sider" width="256" trigger={null} theme="dark" collapsed={collapsed}>
@@ -21,7 +22,7 @@ class AdminSider extends Component {
           <Icon className="logo" type="appstore-o" />
           <span className="title">Cake Shop Admin</span>
         </h1>
-        <Menu mode="inline" theme="dark" defaultSelectedKeys={['dashboard']}>
+        <Menu mode="inline" theme="dark" defaultSelectedKeys={defaultSelectedKeys}>
           <Menu.Item key="dashboard" onClick={this.handleMenuItemClick}>
             <Icon type="dashboard" />
             <span>工作台</span>
@@ -48,7 +49,7 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="check">
+            <Menu.Item key="check_manager">
               <Link to="/shop/check_manager">查看管理员</Link>
             </Menu.Item>
             <Menu.Item key="add">

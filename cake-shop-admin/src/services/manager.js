@@ -10,7 +10,19 @@ async function signup(fields) {
   return res
 }
 
+async function getManagers() {
+  const res = await request.get('/manager')
+  return res
+}
+
+async function removeManager(id) {
+  const res = await request.delete(`/manager/${id}`)
+  return res
+}
+
 export default {
   login,
-  signup
+  signup,
+  getManagers,
+  removeManager
 }
