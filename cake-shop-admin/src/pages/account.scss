@@ -7,13 +7,18 @@
   &__title {
     text-align: center;
   }
-  &__tabs {
-    width: 450px;
+  &__sub-title {
+    display: block;
     margin: 0 auto;
-    margin-top: 3rem;
+    text-align: center;
+  }
+  &__form {
+    width: 420px;
+    margin: 0 auto;
+    margin-top: 4rem;
     padding: 32px;
     background: #fff;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15);
   }
   &__footer {

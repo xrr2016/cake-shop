@@ -95,7 +95,12 @@ async function login(req, res, next) {
     if (isMatch) {
       const token = jwt.sign({ field, id: manager._id }, process.env.JWT_KEY, { expiresIn: '10h' })
 
-      return res.status(200).json({ success: true, message: '登录成功', token })
+      return res.status(200).json({
+        token,
+        success: true,
+        message: '登录成功',
+        manager: { name: manager.name, email: manager.email }
+      })
     } else {
       return res.status(401).json({ success: false, message: '密码错误' })
     }
