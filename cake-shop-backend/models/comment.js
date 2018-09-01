@@ -1,6 +1,7 @@
-const { mongoose, Schema, createModel } = require('./index') 
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const commentSchema = {
+const commentSchema = new Schema({
   content: {
     type: String,
     required: true,
@@ -15,7 +16,9 @@ const commentSchema = {
     ref: 'User',
     required: true
   }
-}
+}, {
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
+})
 
-module.exports = createModel('Order', orderSchema)
+module.exports = mongoose.model('Comment', commentSchema)
 

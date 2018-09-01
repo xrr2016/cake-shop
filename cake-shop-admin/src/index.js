@@ -8,7 +8,9 @@ import Signup from './pages/Signup'
 import NoFound from './pages/NoFound'
 import Admin from './layouts/Admin'
 import Dashboard from './routes/Dashboard'
-import ProductCheck from './routes/Product/Check'
+import ProductPublish from './routes/Product/Publish'
+import ProductAdd from './routes/Product/Add'
+import ProductEdit from './routes/Product/Edit'
 import CheckManager from './routes/Shop/CheckManager'
 import AddManager from './routes/Shop/AddManager'
 
@@ -34,12 +36,12 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={() => (isLogin ? <Redirect to="/admin" /> : <Login login={this.login} />)}
+              render={() => (isLogin ? <Redirect to="/dashboard" /> : <Login login={this.login} />)}
             />
             <Route exact path="/login" render={() => <Login login={this.login} />} />
             <Route exact path="/signup" component={Signup} />
             <Route
-              path="/admin"
+              path="/dashboard"
               render={() => (
                 <Admin>
                   <Dashboard />
@@ -47,10 +49,26 @@ class App extends React.Component {
               )}
             />
             <Route
-              path="/product/check"
+              path="/product/publish"
               render={() => (
                 <Admin>
-                  <ProductCheck />
+                  <ProductPublish />
+                </Admin>
+              )}
+            />
+            <Route
+              path="/product/add"
+              render={() => (
+                <Admin>
+                  <ProductAdd />
+                </Admin>
+              )}
+            />
+            <Route
+              path="/product/edit"
+              render={() => (
+                <Admin>
+                  <ProductEdit />
                 </Admin>
               )}
             />

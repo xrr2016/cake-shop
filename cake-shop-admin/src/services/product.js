@@ -1,5 +1,19 @@
 import request from './request'
 
-class ProductService {}
+async function getProducts() {}
 
-export default new ProductService()
+async function publishProduct() {}
+
+async function addProduct() {}
+
+async function editProduct() {}
+
+async function removeProduct(id) {}
+
+export default {
+  getProducts,
+  publishProduct,
+  addProduct,
+  editProduct,
+  removeProduct
+}

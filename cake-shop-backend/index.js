@@ -26,6 +26,7 @@ app.use(cors({ optionsSuccessStatus: 200 }))
 app.use('/api/user', routes.user)
 app.use('/api/manager', routes.manager)
 app.use('/api/product', routes.product)
+app.use('/api/upload', routes.upload)
 app.use('/uploads', express.static('uploads'))
 app.use('*', (req, res) => res.status(404).end('Not Found!'))
 

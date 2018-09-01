@@ -14,6 +14,7 @@ class AdminSider extends Component {
   }
 
   render() {
+    console.log(window.location.href)
     const { collapsed, defaultSelectedKeys } = this.props
 
     return (
@@ -24,8 +25,10 @@ class AdminSider extends Component {
         </h1>
         <Menu mode="inline" theme="dark" defaultSelectedKeys={defaultSelectedKeys}>
           <Menu.Item key="dashboard" onClick={this.handleMenuItemClick}>
-            <Icon type="dashboard" />
-            <span>工作台</span>
+            <Link to="/dashboard">
+              <Icon type="dashboard" />
+              <span>工作台</span>
+            </Link>
           </Menu.Item>
           <SubMenu
             key="product"
@@ -36,9 +39,15 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="check">查看商品</Menu.Item>
-            <Menu.Item key="add">新增商品</Menu.Item>
-            <Menu.Item key="edit">编辑商品</Menu.Item>
+            <Menu.Item key="publish_product">
+              <Link to="/product/publish">发布商品</Link>
+            </Menu.Item>
+            <Menu.Item key="add_product">
+              <Link to="/product/add">新增商品</Link>
+            </Menu.Item>
+            <Menu.Item key="edit_product">
+              <Link to="/product/edit">编辑商品</Link>
+            </Menu.Item>
           </SubMenu>
           <SubMenu
             key="shop"
@@ -52,7 +61,7 @@ class AdminSider extends Component {
             <Menu.Item key="check_manager">
               <Link to="/shop/check_manager">查看管理员</Link>
             </Menu.Item>
-            <Menu.Item key="add">
+            <Menu.Item key="add_manager">
               <Link to="/shop/add_manager">新增管理员</Link>
             </Menu.Item>
           </SubMenu>
@@ -65,8 +74,8 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="check">用户数据</Menu.Item>
-            <Menu.Item key="setting">用户编辑</Menu.Item>
+            <Menu.Item key="check_user">用户数据</Menu.Item>
+            <Menu.Item key="setting_user">用户编辑</Menu.Item>
           </SubMenu>
           <SubMenu
             key="order"
@@ -77,9 +86,9 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="check">查看订单</Menu.Item>
-            <Menu.Item key="edit">修改订单</Menu.Item>
-            <Menu.Item key="detail">订单详情</Menu.Item>
+            <Menu.Item key="check_order">查看订单</Menu.Item>
+            <Menu.Item key="edit_order">修改订单</Menu.Item>
+            <Menu.Item key="detail_order">订单详情</Menu.Item>
           </SubMenu>
           <SubMenu
             key="comment"
@@ -102,9 +111,9 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="check">查看活动</Menu.Item>
-            <Menu.Item key="add">添加活动</Menu.Item>
-            <Menu.Item key="edit">活动编辑</Menu.Item>
+            <Menu.Item key="check_activity">查看活动</Menu.Item>
+            <Menu.Item key="add_activity">添加活动</Menu.Item>
+            <Menu.Item key="edit_activity">活动编辑</Menu.Item>
           </SubMenu>
           <Menu.Item key="setting">
             <Icon type="setting" />
