@@ -4,22 +4,25 @@
   overflow-y: auto;
   max-height: calc(100vh - 50px);
   -webkit-overflow-scrolling: touch;
+  &__navbar {
+    border-bottom: 1px solid #eee;
+  }
   .top-products {
-    padding: 18px 0;
-    background: #fff;
-    min-height: 280px;
+    margin-top: 1rem;
+    min-height: 200px;
     overflow: hidden;
     &__item {
       position: relative;
+      background-color: #fff;
     }
     &__img {
       width: 100%;
-      height: 240px;
+      height: 260px;
     }
     &__name {
       position: absolute;
-      bottom: 4px;
       left: 0;
+      bottom: 1px;
       display: block;
       width: 100%;
       padding: 4px 0;
@@ -32,10 +35,13 @@
       background-color: yellowgreen;
     }
   }
-  .category-grid {
-    margin-top: 12px;
+  &__category-grid {
+    margin-top: 1rem;
+    .am-grid-icon {
+      height: 25px;
+    }
   }
   .recommend-list {
-    margin-top: 12px;
+    margin-top: 1rem;
   }
 }

@@ -54,36 +54,6 @@ class AppBottomBar extends Component {
             }}
           />
           <TabBar.Item
-            icon={
-              <span
-                style={{
-                  width: '22px',
-                  height: '22px',
-                  background:
-                    'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
-                }}
-              />
-            }
-            selectedIcon={
-              <div
-                style={{
-                  width: '22px',
-                  height: '22px',
-                  background:
-                    'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
-                }}
-              />
-            }
-            title="分类"
-            key="分类"
-            selected={selectedTab === 'category'}
-            onPress={() => {
-              this.setState({ selectedTab: 'category' })
-              history.push('/category')
-            }}
-            data-seed="logId1"
-          />
-          <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
             selectedIcon={{
               uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'

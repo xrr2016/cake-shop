@@ -10,8 +10,8 @@ async function getRecommendProducts() {
   return res
 }
 
-async function getProducts() {
-  const res = await request.get('/product')
+async function getProducts(sort) {
+  const res = await request.get(`/product/${sort}`)
   return res
 }
 
