@@ -31,7 +31,7 @@ export default class CheckManager extends Component {
         const index = managers.findIndex(manager => manager._id === id)
         managers.splice(index, 1)
         this.setState({ managers })
-        Message.error(res.data.message)
+        Message.success(res.data.message)
       })
       .catch(error => {
         const { data } = error.response
@@ -63,7 +63,7 @@ export default class CheckManager extends Component {
                   icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
                   onConfirm={() => this.removeManager(manager._id)}
                 >
-                  <span>删除</span>
+                  <a>删除</a>
                 </Popconfirm>
               ]}
             >

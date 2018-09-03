@@ -1,12 +1,13 @@
 import request from './request'
 
-async function getProducts() {
-  const res = await request.get('/product')
+async function getProducts(sort = -1) {
+  const res = await request.get(`/product/${sort}`)
   return res
 }
 
-async function publishProduct(id) {
-  const res = await request.put(`/product/${id}`, { publish: true })
+async function updateProduct(id, publish) {
+  console.log(publish)
+  const res = await request.put(`/product/${id}`, { updates: { publish } })
   return res
 }
 
@@ -27,7 +28,7 @@ async function removeProduct(id) {
 
 export default {
   getProducts,
-  publishProduct,
+  updateProduct,
   addProduct,
   editProduct,
   removeProduct

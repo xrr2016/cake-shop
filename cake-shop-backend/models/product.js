@@ -28,7 +28,7 @@ const productSchema = new Schema(
       type: Array
     },
     rate: {
-      type: Schema.Types.Decimal128,
+      type: Number,
       default: 5.0
     },
     publish: {

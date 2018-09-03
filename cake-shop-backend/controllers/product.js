@@ -15,8 +15,26 @@ async function getTopProducts(req, res) {
     })
 }
 
+async function getRecommendProducts(req, res) {
+  Product.find({})
+    .exec()
+    .then(products => {
+      const recommendProducts = products.filter(p => p.category.includes('recommend'))
+      return res.status(200).json({
+        success: true,
+        recommendProducts
+      })
+    })
+    .catch(error => {
+      return res.status(500).json({ success: false, error })
+    })
+}
+
 async function getProducts(req, res) {
+  const sort = req.params.sort ? req.params.sort : -1
+
   Product.find()
+    .sort({ updated_at: sort })
     .exec()
     .then(products => {
       return res.status(200).json({ success: true, products })
@@ -76,6 +94,8 @@ async function updateProduct(req, res, next) {
   const { productId } = req.params
   const { updates } = req.body
 
+  console.log(productId, updates)
+
   Product.findByIdAndUpdate(
     { _id: productId },
     { ...updates },
@@ -107,6 +127,7 @@ module.exports = {
   getProduct,
   getProducts,
   getTopProducts,
+  getRecommendProducts,
   addProduct,
   updateProduct,
   deleteProduct

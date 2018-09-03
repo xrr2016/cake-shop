@@ -3,8 +3,9 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const controller = require('../controllers/product')
 
-router.get('/', controller.getProducts)
 router.get('/top', controller.getTopProducts)
+router.get('/recommend', controller.getRecommendProducts)
+router.get('/:sort', controller.getProducts)
 router.post('/', controller.addProduct)
 
 router

@@ -87,6 +87,7 @@ class ProductAdd extends Component {
               rules: [{ message: '请选择商品类目', type: 'array' }]
             })(
               <Select placeholder="请选择商品类目" mode="multiple">
+                <Option value="recommend">推荐</Option>
                 <Option value="new">新品</Option>
                 <Option value="sale">促销</Option>
                 <Option value="hot">热卖</Option>

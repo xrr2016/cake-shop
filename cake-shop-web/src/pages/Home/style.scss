@@ -7,6 +7,7 @@
   .top-products {
     padding: 18px 0;
     background: #fff;
+    min-height: 280px;
     overflow: hidden;
     &__item {
       position: relative;
@@ -30,5 +31,11 @@
       height: 150px;
       background-color: yellowgreen;
     }
+  }
+  .category-grid {
+    margin-top: 12px;
+  }
+  .recommend-list {
+    margin-top: 12px;
   }
 }

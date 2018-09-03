@@ -7,6 +7,7 @@
   .app-home .top-products {
     padding: 18px 0;
     background: #fff;
+    min-height: 280px;
     overflow: hidden; }
     .app-home .top-products__item {
       position: relative; }
@@ -26,3 +27,7 @@
     .app-home .top-products__img-holder {
       height: 150px;
       background-color: yellowgreen; }
+  .app-home .category-grid {
+    margin-top: 12px; }
+  .app-home .recommend-list {
+    margin-top: 12px; }

@@ -5,6 +5,11 @@ async function getTopProducts() {
   return res
 }
 
+async function getRecommendProducts() {
+  const res = await request.get('/product/recommend')
+  return res
+}
+
 async function getProducts() {
   const res = await request.get('/product')
   return res
@@ -12,5 +17,6 @@ async function getProducts() {
 
 export default {
   getProducts,
-  getTopProducts
+  getTopProducts,
+  getRecommendProducts
 }
