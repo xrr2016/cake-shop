@@ -26,7 +26,7 @@ class Login extends Component {
             localStorage.setItem(CAKE_SHOP_AUTH_TOKEN, `Bearer ${token}`)
             localStorage.setItem(CAKE_SHOP_USER_INFO, JSON.stringify(manager))
             login(manager)
-            history.push('/admin')
+            history.push('/dashboard')
           })
           .catch(error => {
             const { data } = error.response

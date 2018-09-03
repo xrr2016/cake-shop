@@ -20,7 +20,7 @@ const productSchema = new Schema(
       type: Number,
       default: 0
     },
-    imgUrl: {
+    imgList: {
       type: Array,
       default: ''
     },
@@ -31,7 +31,7 @@ const productSchema = new Schema(
       type: Schema.Types.Decimal128,
       default: 5.0
     },
-    published: {
+    publish: {
       type: Boolean,
       default: false
     }

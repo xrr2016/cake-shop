@@ -1,6 +1,20 @@
 const validator = require('validator')
 const Product = require('../models/product')
 
+async function getTopProducts(req, res) {
+  const pageSize = 4
+
+  Product.find({})
+    .limit(pageSize)
+    .exec()
+    .then(topProducts => {
+      return res.status(200).json({ success: true, topProducts })
+    })
+    .catch(error => {
+      return res.status(500).json({ success: false, error })
+    })
+}
+
 async function getProducts(req, res) {
   Product.find()
     .exec()
@@ -26,8 +40,7 @@ async function getProduct(req, res) {
 }
 
 async function addProduct(req, res, next) {
-  const imgUrl = `${process.env.HOSTNAME}:${process.env.PORT}/${req.file.path}`
-  const { name, description, price, stock } = req.body
+  const { name, description, price, stock, category, imgList, publish, rate } = req.body
 
   if (validator.isEmpty(name)) {
     return res.status(400).json({ success: false, message: '请输入商品名称' })
@@ -37,7 +50,17 @@ async function addProduct(req, res, next) {
     return res.status(400).json({ success: false, message: '请输入正确的价格数据' })
   }
 
-  const newProduct = new Product({ name, description, price, stock, imgUrl })
+  if (!imgList.length) {
+    return res.status(400).json({ success: false, message: '请至少添加一张商品图片' })
+  }
+
+  const oldProduct = await Product.findOne({ name }).exec()
+
+  if (oldProduct !== null) {
+    return res.status(409).json({ success: false, message: '商品已存在' })
+  }
+
+  const newProduct = new Product(req.body)
 
   newProduct
     .save()
@@ -51,11 +74,17 @@ async function addProduct(req, res, next) {
 
 async function updateProduct(req, res, next) {
   const { productId } = req.params
-  const {} = req.body
-  Product.findByIdAndUpdate({ _id: productId }, {})
+  const { updates } = req.body
+
+  Product.findByIdAndUpdate(
+    { _id: productId },
+    { ...updates },
+    { new: true, runValidators: true },
+    null
+  )
     .exec()
     .then(product => {
-      return res.status(200).json({ success: true, message: '更新成功' })
+      return res.status(200).json({ success: true, message: '更新成功', product })
     })
     .catch(error => {
       return res.status(404).json({ success: false, message: '未找到商品，请重试' })
@@ -77,6 +106,7 @@ async function deleteProduct(req, res, next) {
 module.exports = {
   getProduct,
   getProducts,
+  getTopProducts,
   addProduct,
   updateProduct,
   deleteProduct

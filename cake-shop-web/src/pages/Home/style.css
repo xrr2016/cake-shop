@@ -4,10 +4,25 @@
   overflow-y: auto;
   max-height: calc(100vh - 50px);
   -webkit-overflow-scrolling: touch; }
-  .app-home .space-carousel {
+  .app-home .top-products {
     padding: 18px 0;
     background: #fff;
     overflow: hidden; }
-  .app-home .img-holder {
-    height: 150px;
-    background-color: yellowgreen; }
+    .app-home .top-products__item {
+      position: relative; }
+    .app-home .top-products__img {
+      width: 100%;
+      height: 240px; }
+    .app-home .top-products__name {
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      display: block;
+      width: 100%;
+      padding: 4px 0;
+      text-align: center;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.15); }
+    .app-home .top-products__img-holder {
+      height: 150px;
+      background-color: yellowgreen; }

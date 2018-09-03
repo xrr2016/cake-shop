@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Tabs, List, Card, message as Message } from 'antd'
+import { Layout, Tabs, List, Card } from 'antd'
 
 import Chart from 'bizcharts/lib/components/Chart'
 import Axis from 'bizcharts/lib/components/Axis'

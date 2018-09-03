@@ -27,6 +27,16 @@ class ProductAdd extends Component {
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
         console.log(values)
+        values.imgList = values.imgList.map(item => item.response.imgUrl)
+        ProductService.addProduct(values)
+          .then(res => {
+            const { message } = res.data
+            Message.success(message)
+          })
+          .catch(error => {
+            const { data } = error.response
+            Message.error(data.message)
+          })
       }
     })
   }
@@ -91,7 +101,8 @@ class ProductAdd extends Component {
             })(<InputNumber min={1} max={5} step={0.1} />)}
           </Item>
           <Item {...itemLayout} label="商品图片">
-            {getFieldDecorator('uploadImgList', {
+            {getFieldDecorator('imgList', {
+              rules: [{ required: true, message: '请至少上传一张商品图片' }],
               valuePropName: 'fileList',
               getValueFromEvent: this.normFile
             })(
@@ -109,11 +120,8 @@ class ProductAdd extends Component {
             })(<Switch />)}
           </Item>
           <Item wrapperCol={{ span: 18, offset: 6 }}>
-            <Button type="primary" htmlType="submit" style={{ marginRight: 12 }}>
+            <Button type="primary" htmlType="submit" block>
               添加
-            </Button>
-            <Button type="default" htmlType="reset">
-              清除
             </Button>
           </Item>
         </Form>

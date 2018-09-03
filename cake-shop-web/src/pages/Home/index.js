@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { SearchBar, Carousel, Grid, ListView } from 'antd-mobile'
 
 import './style.css'
-
-const data = Array.from(new Array(9)).map((_val, i) => ({
-  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-  text: `name${i}`
-}))
+import ProductService from '../../services/product'
 
 const data01 = [
   {
@@ -59,10 +55,19 @@ export default class Home extends Component {
     imgHeight: 176,
     slideIndex: 0,
     isLoading: true,
-    dataSource
+    dataSource,
+    topProducts: []
   }
 
   componentDidMount() {
+    ProductService.getTopProducts()
+      .then(res => {
+        const { topProducts } = res.data
+        this.setState({ topProducts })
+      })
+      .catch(error => {
+        console.log(error)
+      })
     // setTimeout(() => this.lv.scrollTo(0, 120), 800);
     setTimeout(() => {
       this.rData = genData()
@@ -93,7 +98,13 @@ export default class Home extends Component {
   }
 
   render() {
+    const { topProducts } = this.state
     let index = data01.length - 1
+
+    const gridData = Array.from(new Array(4)).map((_val, i) => ({
+      icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+      text: `name${i}`
+    }))
 
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -106,8 +117,9 @@ export default class Home extends Component {
     return (
       <main className="app-home">
         <SearchBar placeholder="搜索" onSubmit={this.handleSearch} maxLength={16} />
+
         <Carousel
-          className="space-carousel"
+          className="top-products"
           dots={false}
           frameOverflow="visible"
           cellSpacing={20}
@@ -115,11 +127,24 @@ export default class Home extends Component {
           autoplay
           infinite
         >
-          {this.state.data.map((val, index) => (
-            <div className="img-holder" key={index} />
-          ))}
+          {topProducts.length ? (
+            topProducts.map((item, index) => (
+              <div className="top-products__item">
+                <img
+                  className="top-products__img"
+                  key={index}
+                  src={item.imgList[0]}
+                  alt={item.name}
+                />
+                <span className="top-products__name">{item.name}</span>
+              </div>
+            ))
+          ) : (
+            <div className="top-products__img-holder" />
+          )}
         </Carousel>
-        <Grid data={data} isCarousel hasLine={false} onClick={_el => console.log(_el)} />
+
+        <Grid data={gridData} hasLine={false} onClick={_el => console.log(_el)} />
 
         <ul>
           <div style={{ padding: '0 15px', backgroundColor: '#fff' }}>
@@ -149,110 +174,7 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
-          <div style={{ padding: '0 15px', backgroundColor: '#fff' }}>
-            <div
-              style={{
-                lineHeight: '50px',
-                color: '#888',
-                fontSize: 18,
-                borderBottom: '1px solid #F6F6F6'
-              }}
-            >
-              {'Meet hotel'}
-            </div>
-            <div style={{ display: 'flex', padding: '15px 0' }}>
-              <img
-                style={{ height: '64px', marginRight: '15px' }}
-                src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
-                alt=""
-              />
-              <div style={{ lineHeight: 1 }}>
-                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>
-                  {'不是所有的兼职汪都需要风吹日晒'}
-                </div>
-                <div>
-                  <span style={{ fontSize: '30px', color: '#FF6E27' }}>{20}</span>¥
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style={{ padding: '0 15px', backgroundColor: '#fff' }}>
-            <div
-              style={{
-                lineHeight: '50px',
-                color: '#888',
-                fontSize: 18,
-                borderBottom: '1px solid #F6F6F6'
-              }}
-            >
-              {'Meet hotel'}
-            </div>
-            <div style={{ display: 'flex', padding: '15px 0' }}>
-              <img
-                style={{ height: '64px', marginRight: '15px' }}
-                src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
-                alt=""
-              />
-              <div style={{ lineHeight: 1 }}>
-                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>
-                  {'不是所有的兼职汪都需要风吹日晒'}
-                </div>
-                <div>
-                  <span style={{ fontSize: '30px', color: '#FF6E27' }}>{20}</span>¥
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style={{ padding: '0 15px', backgroundColor: '#fff' }}>
-            <div
-              style={{
-                lineHeight: '50px',
-                color: '#888',
-                fontSize: 18,
-                borderBottom: '1px solid #F6F6F6'
-              }}
-            >
-              {'Meet hotel'}
-            </div>
-            <div style={{ display: 'flex', padding: '15px 0' }}>
-              <img
-                style={{ height: '64px', marginRight: '15px' }}
-                src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
-                alt=""
-              />
-              <div style={{ lineHeight: 1 }}>
-                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>
-                  {'不是所有的兼职汪都需要风吹日晒'}
-                </div>
-                <div>
-                  <span style={{ fontSize: '30px', color: '#FF6E27' }}>{20}</span>¥
-                </div>
-              </div>
-            </div>
-          </div>
         </ul>
-
-        {/* <ListView
-          ref={el => (this.lv = el)}
-          dataSource={dataSource}
-          renderHeader={() => <span>推荐</span>}
-          renderFooter={() => (
-            <div style={{ padding: 30, textAlign: 'center' }}>
-              {this.state.isLoading ? 'Loading...' : 'Loaded'}
-            </div>
-          )}
-          renderRow={row}
-          renderSeparator={separator}
-          className="am-list"
-          pageSize={10}
-          useBodyScroll
-          onScroll={() => {
-            console.log('scroll')
-          }}
-          scrollRenderAheadDistance={500}
-          onEndReached={this.onEndReached}
-          onEndReachedThreshold={10}
-        /> */}
       </main>
     )
   }
