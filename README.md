@@ -2,26 +2,39 @@
 
 ## 前言
 
-这是一个  简易的电商网站项目，由  移动端 ，管理后台，后端接口组成，技术栈为前端 `react`, `react-router`, `antd`, `antd-mobile` 等，后端 `express`, `jsonwebtoken`, `mongoose`, `mongodb` 等，项目目录结构为![](./screen-shots/project.png)
+这是一个简易的电商网站项目，由移动端 ，管理后台，后端接口组成，技术栈为前端 `react`, `react-router`, `antd`, `antd-mobile` 等，后端 `express`, `jsonwebtoken`, `mongoose`, `mongodb` 等，项目目录结构为![](./screen-shots/project.png)
 
 ## 展示
 
 移动端首页
+
 ![home](./screen-shots/home.png)
+
 移动端购物车
+
 ![cart](./screen-shots/cart.gif)
+
 管理后台登录
+
 ![login](./screen-shots/login.png)
+
 管理后台操作界面
+
 ![set](./screen-shots/set.png)
+
 查看管理员
+
 ![check](./screen-shots/check_manager.png)
+
 添加管理员
+
 ![add](./screen-shots/add_manager.gif)
+
 新增商品
+
 ![new](./screen-shots/new_product.png)
 
-##  实现的功能
+## 实现的功能
 
 - 移动端首页 ，购物车，我的页面
 - 管理后台注册，登录， 店铺管理，商品管理界面
@@ -46,17 +59,17 @@ git clone git@github.com:xrr2016/cake-shop.git
 
 cd cake-shop
 
-// 后端服务
+# 后端服务
 cd cake-shop-backend
 
 npm run dev
 
-// 管理后台
+# 管理后台
 cd cake-shop-admin
 
 yarn start
 
-// 移动端页面
+# 移动端页面
 cd cake-shop-web
 
 yarn start
