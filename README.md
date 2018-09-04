@@ -2,7 +2,11 @@
 
 ## 前言
 
-这是一个简易的电商网站项目，由移动端，管理后台，后端接口组成，技术栈为前端 `react`, `react-router`, `antd`, `antd-mobile` 等，后端 `express`, `jsonwebtoken`, `mongoose`, `mongodb` 等，项目目录结构为![](./screen-shots/project.png)
+这是一个简易的电商网站项目，由移动端，管理后台，后端接口3部分组成，技术栈为前端 `react`, `react-router`, `antd`, `antd-mobile` 等，后端 `express`, `jsonwebtoken`, `mongoose`, `mongodb` 等。
+
+项目目录结构
+
+![](./screen-shots/project.png)
 
 ## 展示
 
@@ -61,17 +65,17 @@ cd cake-shop
 
 # 后端服务
 cd cake-shop-backend
-
+npm install
 npm run dev
 
 # 管理后台
 cd cake-shop-admin
-
+yarn
 yarn start
 
 # 移动端页面
 cd cake-shop-web
-
+yarn
 yarn start
 ```
 
