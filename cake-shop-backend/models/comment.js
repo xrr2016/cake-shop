@@ -6,9 +6,9 @@ const commentSchema = new Schema({
     type: String,
     required: true,
     default: ''
-  }
+  },
   rate: {
-    type: Decimal128,
+    type: Number,
     default: 0.0
   },
   user: {

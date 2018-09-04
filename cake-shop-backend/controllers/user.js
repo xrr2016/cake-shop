@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const validator = require('validator')
-const mongoose = require('mongoose')
 
 const User = require('../models/user')
 
@@ -33,7 +32,7 @@ async function getUser(req, res) {
       return res.status(200).json({ success: true, user })
     })
     .catch(error => {
-      return res.status(404).json({ success: false, message: '用户不存在' })
+      return res.status(404).json({ success: false, message: '用户不存在', error })
     })
 }
 
@@ -146,7 +145,7 @@ async function update(req, res) {
       return res.status(200).json({ success: true, message: '更新成功' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '用户不存在' })
+      return res.status(500).json({ success: false, message: '用户不存在', error })
     })
 }
 
@@ -159,7 +158,7 @@ async function remove(req, res) {
       return res.status(200).json({ success: true, message: '删除成功' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '用户不存在' })
+      return res.status(500).json({ success: false, message: '用户不存在', error })
     })
 }
 

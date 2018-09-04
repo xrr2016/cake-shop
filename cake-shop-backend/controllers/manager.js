@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const validator = require('validator')
-const mongoose = require('mongoose')
 
 const Manager = require('../models/manager')
 
@@ -33,7 +32,7 @@ async function getManager(req, res) {
       return res.status(200).json({ success: true, user })
     })
     .catch(error => {
-      return res.status(404).json({ success: false, message: '用户不存在' })
+      return res.status(404).json({ success: false, message: '用户不存在', error })
     })
 }
 
@@ -109,7 +108,7 @@ async function login(req, res, next) {
 
 async function update(req, res) {
   const managerId = req.params.managerId
-  let { name, email, password, level } = req.body
+  let { name, email, password } = req.body
 
   if (!name && !email && !password) {
     return res.status(406).json({ success: false, message: '请至少选择一项进行修改' })
@@ -151,7 +150,7 @@ async function update(req, res) {
       return res.status(200).json({ success: true, message: '更新成功' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '用户不存在' })
+      return res.status(500).json({ success: false, message: '用户不存在', error })
     })
 }
 
@@ -164,7 +163,7 @@ async function remove(req, res) {
       return res.status(200).json({ success: true, message: '删除成功' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '用户不存在' })
+      return res.status(500).json({ success: false, message: '用户不存在', error })
     })
 }
 

@@ -101,7 +101,7 @@ async function addProduct(req, res, next) {
       return res.status(201).json({ success: true, message: '添加商品成功', result })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '出错了，请重试' })
+      return res.status(500).json({ success: false, message: '出错了，请重试', error })
     })
 }
 
@@ -115,7 +115,7 @@ async function updateProduct(req, res, next) {
       return res.status(200).json({ success: true, message: '更新成功', product })
     })
     .catch(error => {
-      return res.status(404).json({ success: false, message: '未找到商品，请重试' })
+      return res.status(404).json({ success: false, message: '未找到商品，请重试', error })
     })
 }
 

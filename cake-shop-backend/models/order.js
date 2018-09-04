@@ -18,10 +18,9 @@ const orderSchema = new Schema({
   },
   status: {
     type: String,
-    required: true
+    required: true,
     default: 'unpaid'
-  },
-  
+  }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
