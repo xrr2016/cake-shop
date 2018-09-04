@@ -60,7 +60,7 @@ class Admin extends Component {
                         style={{ backgroundColor: '#87d068' }}
                         icon="user"
                       />
-                      <span className="dashboard__username">{manager.name}</span>
+                      <span className="dashboard__username">{manager ? manager.name : ''}</span>
                     </span>
                   </Dropdown>
                 </div>

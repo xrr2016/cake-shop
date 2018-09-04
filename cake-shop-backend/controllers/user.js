@@ -93,7 +93,7 @@ async function login(req, res, next) {
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (isMatch) {
-      const token = jwt.sign({ field, id: user._id }, process.env.JWT_KEY, { expiresIn: '10h' })
+      const token = jwt.sign({ field, id: user._id }, process.env.JWT_KEY)
 
       return res.status(200).json({ success: true, message: '登录成功', token })
     } else {

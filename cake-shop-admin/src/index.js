@@ -18,7 +18,7 @@ import { ManagerContext } from './store/manager'
 import { CAKE_SHOP_AUTH_TOKEN, CAKE_SHOP_USER_INFO } from './constant'
 import registerServiceWorker from './registerServiceWorker'
 
-const isLogin = localStorage.getItem(CAKE_SHOP_AUTH_TOKEN)
+const isLogin = localStorage.getItem(CAKE_SHOP_AUTH_TOKEN) !== null
 const manager = JSON.parse(localStorage.getItem(CAKE_SHOP_USER_INFO))
 
 class App extends React.Component {
@@ -40,6 +40,7 @@ class App extends React.Component {
             />
             <Route exact path="/login" render={() => <Login login={this.login} />} />
             <Route exact path="/signup" component={Signup} />
+
             <Route
               path="/dashboard"
               render={() => (
@@ -88,6 +89,7 @@ class App extends React.Component {
                 </Admin>
               )}
             />
+
             <Route component={NoFound} />
           </Switch>
         </BrowserRouter>

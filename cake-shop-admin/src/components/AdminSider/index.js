@@ -44,9 +44,6 @@ class AdminSider extends Component {
             <Menu.Item key="add_product">
               <Link to="/product/add">新增商品</Link>
             </Menu.Item>
-            <Menu.Item key="edit_product">
-              <Link to="/product/edit">编辑商品</Link>
-            </Menu.Item>
           </SubMenu>
           <SubMenu
             key="shop"

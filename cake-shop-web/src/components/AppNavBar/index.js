@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { NavBar, Icon } from 'antd-mobile'
 
-export default props => (
+const AppNavBar = props => (
   <NavBar
     icon={<Icon type={props.icon} />}
     rightContent={[
@@ -11,3 +11,4 @@ export default props => (
     {props.children}
   </NavBar>
 )
+export default AppNavBar

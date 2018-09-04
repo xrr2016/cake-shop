@@ -46,7 +46,8 @@ class ProductManage extends Component {
         Message.success(res.data.message)
       })
       .catch(error => {
-        Message.error(error.message)
+        const { message } = error.response.data
+        Message.error(message)
       })
   }
 
