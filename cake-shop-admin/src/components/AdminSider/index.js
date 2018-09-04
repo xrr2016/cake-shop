@@ -14,7 +14,6 @@ class AdminSider extends Component {
   }
 
   render() {
-    console.log(window.location.href)
     const { collapsed, defaultSelectedKeys } = this.props
 
     return (
@@ -39,8 +38,8 @@ class AdminSider extends Component {
               </span>
             }
           >
-            <Menu.Item key="publish_product">
-              <Link to="/product/publish">发布商品</Link>
+            <Menu.Item key="publish_manage">
+              <Link to="/product/manage">管理商品</Link>
             </Menu.Item>
             <Menu.Item key="add_product">
               <Link to="/product/add">新增商品</Link>

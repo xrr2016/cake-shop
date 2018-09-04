@@ -1,0 +1,12 @@
+.add-product {
+  margin: 12px;
+  padding: 12px;
+  background-color: #fff;
+  &__title {
+    text-align: center;
+  }
+  &__form {
+    width: 720px;
+    margin: 0 auto;
+  }
+}

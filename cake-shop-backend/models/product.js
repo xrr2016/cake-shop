@@ -27,6 +27,10 @@ const productSchema = new Schema(
     category: {
       type: Array
     },
+    top: {
+      type: Boolean,
+      default: false
+    },
     rate: {
       type: Number,
       default: 5.0

@@ -6,6 +6,7 @@
   -webkit-overflow-scrolling: touch;
   &__navbar {
     border-bottom: 1px solid #eee;
+    background-color: #0984e3;
   }
   .top-products {
     margin-top: 1rem;
@@ -13,6 +14,7 @@
     overflow: hidden;
     &__item {
       position: relative;
+      max-width: 320px;
       background-color: #fff;
     }
     &__img {

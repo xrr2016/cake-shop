@@ -4,45 +4,40 @@ import { withRouter } from 'react-router-dom'
 
 import './style.css'
 
+import home from '../../assets/bottoms/home.png'
+import home_active from '../../assets/bottoms/home_active.png'
+import cart from '../../assets/bottoms/cart.png'
+import cart_active from '../../assets/bottoms/cart_active.png'
+import mine from '../../assets/bottoms/mine.png'
+import mine_active from '../../assets/bottoms/mine_active.png'
+
 class AppBottomBar extends Component {
   state = {
     selectedTab: 'home',
     hidden: false
   }
 
+  componentWillMount() {
+    const selectedTab = window.location.pathname.replace('/', '')
+    this.setState({ selectedTab })
+  }
+
   render() {
     const { selectedTab } = this.state
     const { history } = this.props
+
     return (
       <nav className="app-bottom-bar">
         <TabBar
           noRenderContent={false}
+          tintColor="#108ee9"
           unselectedTintColor="#999"
-          tintColor="#33A3F4"
           tabBarPosition="bottom"
           hidden={this.state.hidden}
         >
           <TabBar.Item
-            icon={
-              <div
-                style={{
-                  width: '22px',
-                  height: '22px',
-                  background:
-                    'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
-                }}
-              />
-            }
-            selectedIcon={
-              <div
-                style={{
-                  width: '22px',
-                  height: '22px',
-                  background:
-                    'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
-                }}
-              />
-            }
+            icon={{ uri: home }}
+            selectedIcon={{ uri: home_active }}
             title="首页"
             key="home"
             selected={selectedTab === 'home'}
@@ -54,10 +49,8 @@ class AppBottomBar extends Component {
             }}
           />
           <TabBar.Item
-            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-            selectedIcon={{
-              uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'
-            }}
+            icon={{ uri: cart }}
+            selectedIcon={{ uri: cart_active }}
             title="购物车"
             key="cart"
             selected={selectedTab === 'cart'}
@@ -69,10 +62,8 @@ class AppBottomBar extends Component {
             }}
           />
           <TabBar.Item
-            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-            selectedIcon={{
-              uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'
-            }}
+            icon={{ uri: mine }}
+            selectedIcon={{ uri: mine_active }}
             title="我的"
             key="mine"
             selected={selectedTab === 'mine'}

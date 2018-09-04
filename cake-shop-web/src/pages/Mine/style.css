@@ -1,0 +1,12 @@
+.app-mine {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: calc(100vh - 50px);
+  -webkit-overflow-scrolling: touch; }
+  .app-mine__list {
+    margin-top: 1rem;
+    background-color: transparent; }
+  .app-mine__header {
+    margin-top: 1rem;
+    margin-bottom: 1rem; }

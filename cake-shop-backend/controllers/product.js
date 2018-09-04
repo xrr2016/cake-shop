@@ -2,10 +2,8 @@ const validator = require('validator')
 const Product = require('../models/product')
 
 async function getTopProducts(req, res) {
-  const pageSize = 4
-
-  Product.find({})
-    .limit(pageSize)
+  Product.find()
+    .$where('this.top === true')
     .exec()
     .then(topProducts => {
       return res.status(200).json({ success: true, topProducts })
@@ -35,19 +33,36 @@ async function getProducts(req, res) {
 
   Product.find()
     .sort({ updated_at: sort })
+    .$where('this.publish === true && this.top !== true')
     .exec()
     .then(products => {
-      return res.status(200).json({ success: true, products })
+      return res.status(200).json({ success: true, products, total: products.length })
     })
     .catch(error => {
       return res.status(500).json({ success: false, error })
     })
 }
 
-async function getProduct(req, res) {
+async function getAllProducts(req, res) {
+  const sort = req.params.sort ? req.params.sort : -1
+
+  Product.find()
+    .sort({ updated_at: sort })
+    .exec()
+    .then(products => {
+      return res.status(200).json({ success: true, products, total: products.length })
+    })
+    .catch(error => {
+      return res.status(500).json({ success: false, error })
+    })
+}
+
+async function getProductDetail(req, res) {
   const { productId } = req.params
 
-  Product.findById({ _id: productId })
+  console.log(productId)
+
+  Product.findOne({ _id: productId })
     .exec()
     .then(product => {
       return res.status(200).json({ success: true, product })
@@ -91,17 +106,10 @@ async function addProduct(req, res, next) {
 }
 
 async function updateProduct(req, res, next) {
-  const { productId } = req.params
   const { updates } = req.body
+  const { productId } = req.params
 
-  console.log(productId, updates)
-
-  Product.findByIdAndUpdate(
-    { _id: productId },
-    { ...updates },
-    { new: true, runValidators: true },
-    null
-  )
+  Product.findByIdAndUpdate(productId, { ...updates }, { new: true, runValidators: true }, null)
     .exec()
     .then(product => {
       return res.status(200).json({ success: true, message: '更新成功', product })
@@ -113,20 +121,22 @@ async function updateProduct(req, res, next) {
 
 async function deleteProduct(req, res, next) {
   const { productId } = req.params
-  Product.findByIdAndRemove({ _id: productId })
+
+  Product.findByIdAndRemove(productId)
     .exec()
-    .then(res => {
+    .then(() => {
       return res.status(200).json({ success: true, message: '删除成功' })
     })
     .catch(error => {
-      return res.status(500).json({ success: false, message: '出错了，请重试' })
+      return res.status(500).json({ success: false, message: '出错了，请重试', error })
     })
 }
 
 module.exports = {
-  getProduct,
   getProducts,
+  getAllProducts,
   getTopProducts,
+  getProductDetail,
   getRecommendProducts,
   addProduct,
   updateProduct,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { NavBar, Icon, Carousel, Grid, List } from 'antd-mobile'
+import { Carousel, Grid, List } from 'antd-mobile'
+import AppNavBar from '../../components/AppNavBar'
 
 import './style.css'
 import icon0 from '../../assets/icons/0.png'
@@ -74,15 +75,9 @@ export default class Home extends Component {
 
     return (
       <main className="app-home">
-        <NavBar
-          className="app-home__navbar"
-          mode="light"
-          rightContent={[
-            <Icon key="search" type="search" onClick={this.handleSearch} color="#333" />
-          ]}
-        >
-          Cake Shop
-        </NavBar>
+        <AppNavBar rightIcon="search" onClick={this.handleSearch}>
+          首页
+        </AppNavBar>
 
         <Carousel
           className="top-products"

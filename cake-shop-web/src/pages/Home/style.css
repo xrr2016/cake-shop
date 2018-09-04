@@ -5,13 +5,15 @@
   max-height: calc(100vh - 50px);
   -webkit-overflow-scrolling: touch; }
   .app-home__navbar {
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #eee;
+    background-color: #0984e3; }
   .app-home .top-products {
     margin-top: 1rem;
     min-height: 200px;
     overflow: hidden; }
     .app-home .top-products__item {
       position: relative;
+      max-width: 320px;
       background-color: #fff; }
     .app-home .top-products__img {
       width: 100%;

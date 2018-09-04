@@ -8,7 +8,7 @@ import Signup from './pages/Signup'
 import NoFound from './pages/NoFound'
 import Admin from './layouts/Admin'
 import Dashboard from './routes/Dashboard'
-import ProductPublish from './routes/Product/Publish'
+import ProductManage from './routes/Product/Manage'
 import ProductAdd from './routes/Product/Add'
 import ProductEdit from './routes/Product/Edit'
 import CheckManager from './routes/Shop/CheckManager'
@@ -49,10 +49,10 @@ class App extends React.Component {
               )}
             />
             <Route
-              path="/product/publish"
+              path="/product/manage"
               render={() => (
                 <Admin>
-                  <ProductPublish />
+                  <ProductManage />
                 </Admin>
               )}
             />
@@ -65,7 +65,7 @@ class App extends React.Component {
               )}
             />
             <Route
-              path="/product/edit"
+              path="/product/edit/:productId"
               render={() => (
                 <Admin>
                   <ProductEdit />
